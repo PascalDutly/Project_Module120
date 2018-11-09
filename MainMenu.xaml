@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <Canvas Background="LightGray" Name="Main">
 
-            <TabControl Canvas.Left="538" Canvas.Top="218" SelectedIndex="0" Cursor="Hand">
+            <TabControl Background="DarkGray" Canvas.Left="538" Canvas.Top="218" SelectedIndex="0" Cursor="Hand">
                 <TabItem Header="Bewohner hinzufügen" MouseDown="TabItem_MouseDown" MouseUp="TabItem_MouseUp"></TabItem>
                 <TabItem Header="Bewohner löschen" KeyDown="TabItem_KeyDown" MouseUp="TabItem_MouseUp_1"></TabItem>
                 <TabItem Header="Gebäude hinzufügen" KeyDown="TabItem_KeyDown" MouseUp="TabItem_MouseUp_2" ></TabItem>

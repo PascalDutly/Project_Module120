@@ -31,7 +31,7 @@
             <TextBlock Name="Warning" Canvas.Left="92" TextWrapping="Wrap" Canvas.Top="268" Height="40" Width="171" Foreground="Black" Opacity="0"><Run Text="Sind Sie sicher, dass Sie diesen Benutzer löschen wollen?"/></TextBlock>
             <Button Name="Warning1" Content="Ja" Canvas.Left="92" Canvas.Top="308" Width="75" Opacity="0" Click="Warning1_Click" Cursor="Hand"/>
             <Button Name="Warning2" Content="Nein" Canvas.Left="188" Canvas.Top="308" Width="75" Opacity="0" Click="Warning2_Click" Cursor="Hand"/>
-            <Label Name="number" Content="Bitte geben Sie eine Zahl ein" Canvas.Left="295" Canvas.Top="101" Foreground="#FFDB0C0C" Opacity="0"/>
+            <Label Name="number" Content="Bitte geben Sie eine gültige Zahl ein" Canvas.Left="295" Canvas.Top="101" Foreground="#FFDB0C0C" Opacity="0"/>
 
 
         </Canvas>

@@ -42,16 +42,17 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Canvas ToolTip="Männeranteil" Grid.Column="0" Background="RoyalBlue">
+                <Canvas ToolTip="Männeranteil" Grid.Column="0" Background="RoyalBlue" Margin="0,0,2,0">
                     <Label Name="mencount" Content="Männer: " Canvas.Left="10" Canvas.Top="4"/>
                 </Canvas>
-                <Canvas ToolTip="Frauenanteil" Grid.Column="1" Background="DeepPink">
+                <Canvas ToolTip="Frauenanteil" Grid.Column="1" Background="DeepPink" Margin="2,0,0,0">
                     <Label Name="womencount"  Content="Frauen: " Canvas.Right="10" Canvas.Top="4"/>
                 </Canvas>
             </Grid>
             <Button Content="Statistik aktualisieren" Canvas.Left="590" Canvas.Top="292" Width="121" Click="Button_Click_3"/>
 
             <DataGrid Name="listAllCitizens" Height="200" Canvas.Left="388" IsReadOnly="True"/>
+
             <Label Name="format" Content="Achten Sie auf den Datentypen" Canvas.Left="226" Canvas.Top="286" Opacity="0" Foreground="#FFE61A1A"/>
             <Button Content="Aktualisieren" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Canvas.Left="388" Canvas.Top="211" Click="Button_Click_2" Cursor="Hand"/>
             

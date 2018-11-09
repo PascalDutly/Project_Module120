@@ -20,9 +20,10 @@ namespace Projekt_120
 
         public void DeleteCitizen(bool confirm)
         {
-            Int32 id = Convert.ToInt32(CitizenID.Text);
             try
-            {
+            { 
+            Int32 id = Convert.ToInt32(CitizenID.Text);
+            
                 Citizen citizen = DeleteUser.Read_CitizenID(id);
                 Name.Text = citizen.name;
                 FirstName.Text = citizen.firstName;
@@ -43,6 +44,7 @@ namespace Projekt_120
             catch (Exception ex)
             {
                 Console.WriteLine("Fehler beim Löschen:" + ex.Message);
+                number.Opacity = 1;
             }
         }
 
