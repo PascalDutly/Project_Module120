@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="M120_ProjektModelStoreContainer" CdmEntityContainer="M120_ProjektEntities">
+    <EntitySetMapping Name="Buildings">
+      <EntityTypeMapping TypeName="M120_ProjektModel.Building">
+        <MappingFragment StoreEntitySet="Building">
+          <ScalarProperty Name="BuildingID" ColumnName="BuildingID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="streetNr" ColumnName="streetNr" />
+          <ScalarProperty Name="postcode" ColumnName="postcode" />
+          <ScalarProperty Name="place" ColumnName="place" />
+          <ScalarProperty Name="purpose" ColumnName="purpose" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Citizens">
+      <EntityTypeMapping TypeName="M120_ProjektModel.Citizen">
+        <MappingFragment StoreEntitySet="Citizen">
+          <ScalarProperty Name="citizenID" ColumnName="citizenID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="incomePerMonth" ColumnName="incomePerMonth" />
+          <ScalarProperty Name="fk_buildingID" ColumnName="fk_buildingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="M120_ProjektModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="BenutzerID" ColumnName="BenutzerID" />
+          <ScalarProperty Name="Benutzername" ColumnName="Benutzername" />
+          <ScalarProperty Name="Passwort" ColumnName="Passwort" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

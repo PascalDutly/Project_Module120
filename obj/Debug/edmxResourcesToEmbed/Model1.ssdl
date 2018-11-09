@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="M120_ProjektModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Building">
+    <Key>
+      <PropertyRef Name="BuildingID" />
+    </Key>
+    <Property Name="BuildingID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="street" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="streetNr" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="postcode" Type="smallint" Nullable="false" />
+    <Property Name="place" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="purpose" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Citizen">
+    <Key>
+      <PropertyRef Name="citizenID" />
+    </Key>
+    <Property Name="citizenID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="gender" Type="varchar" MaxLength="10" />
+    <Property Name="birthday" Type="datetime" />
+    <Property Name="incomePerMonth" Type="int" />
+    <Property Name="fk_buildingID" Type="int" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="BenutzerID" />
+    </Key>
+    <Property Name="BenutzerID" Type="int" Nullable="false" />
+    <Property Name="Benutzername" Type="nvarchar" MaxLength="50" />
+    <Property Name="Passwort" Type="nvarchar" MaxLength="50" />
+    <Property Name="Avatar" Type="image" />
+  </EntityType>
+  <Association Name="FK_Building_Building">
+    <End Role="Building" Type="Self.Building" Multiplicity="1" />
+    <End Role="Building1" Type="Self.Building" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Building">
+        <PropertyRef Name="BuildingID" />
+      </Principal>
+      <Dependent Role="Building1">
+        <PropertyRef Name="BuildingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Citizen_Citizen">
+    <End Role="Building" Type="Self.Building" Multiplicity="0..1" />
+    <End Role="Citizen" Type="Self.Citizen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Building">
+        <PropertyRef Name="BuildingID" />
+      </Principal>
+      <Dependent Role="Citizen">
+        <PropertyRef Name="fk_buildingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="M120_ProjektModelStoreContainer">
+    <EntitySet Name="Building" EntityType="Self.Building" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Citizen" EntityType="Self.Citizen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Building_Building" Association="Self.FK_Building_Building">
+      <End Role="Building" EntitySet="Building" />
+      <End Role="Building1" EntitySet="Building" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Citizen_Citizen" Association="Self.FK_Citizen_Citizen">
+      <End Role="Building" EntitySet="Building" />
+      <End Role="Citizen" EntitySet="Citizen" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

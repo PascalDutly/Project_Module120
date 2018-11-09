@@ -1,0 +1,35 @@
+﻿<Window x:Class="Projekt_120.MainWindow" ResizeMode="CanMinimize"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt_120"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="768" Width="1024">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="296"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        
+        <Label Background="LightGray" Content="Gemeindeverwaltung Gemeinde Duzlikofen Login" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontSize="30" ToolTip="Gemeindeverwaltung" Name="Title" Width="2024"/>
+
+        <Canvas Background="LightGray" Margin="0,50,0,0">
+
+            <TextBox Name="Username" Canvas.Left="74" TextWrapping="Wrap" Canvas.Top="165" Width="120"/>
+            <PasswordBox Name="Password" Canvas.Left="74" Canvas.Top="188" Width="120"/>
+            <Label Content="Login" Canvas.Left="29" Canvas.Top="160" />
+            <Label Content="Passwort" Canvas.Left="10" Canvas.Top="185"/>
+
+            <Button Name="login" Content="Login" Canvas.Left="10" Canvas.Top="216" Width="75" Background="#FF20BF27" BorderBrush="Black" Click="Button_Click" Cursor="Hand" MouseDown="Button_MouseDown" MouseEnter="login_MouseEnter"/>
+            <DockPanel Grid.Column="1" Margin="0,0,0,0" Name="SwitchContainer" LastChildFill="True"/>
+            <Label Name="UsernameError" Content="Benutzername oder Passwort falsch" Canvas.Left="199" Canvas.Top="157" Foreground="#FFDB0C0C" Opacity="0"/>
+            <Label Name="LoginSuccessful" Content="Sie sind eingeloggt als M120" Canvas.Left="199" Canvas.Top="185" Foreground="#FF43BB67" Opacity="0"/>
+            <Image ToolTip="Gemeindewappen" Height="125" Canvas.Left="-27" Canvas.Top="-68" Width="130" Source="C:\Users\vmadmin\Documents\Visual Studio 2017\Projects\Projekt_120\Projekt_120\Icons\Wuennewappen2.jpg"/>
+        </Canvas>
+
+    </Grid>
+</Window>

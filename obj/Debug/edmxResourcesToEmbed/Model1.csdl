@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="M120_ProjektModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Building">
+    <Key>
+      <PropertyRef Name="BuildingID" />
+    </Key>
+    <Property Name="BuildingID" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="streetNr" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="postcode" Type="Int16" Nullable="false" />
+    <Property Name="place" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="purpose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Building1" Relationship="Self.FK_Building_Building" FromRole="Building" ToRole="Building1" />
+    <NavigationProperty Name="Building2" Relationship="Self.FK_Building_Building" FromRole="Building1" ToRole="Building" />
+    <NavigationProperty Name="Citizens" Relationship="Self.FK_Citizen_Citizen" FromRole="Building" ToRole="Citizen" />
+  </EntityType>
+  <EntityType Name="Citizen">
+    <Key>
+      <PropertyRef Name="citizenID" />
+    </Key>
+    <Property Name="citizenID" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="birthday" Type="DateTime" Precision="3" />
+    <Property Name="incomePerMonth" Type="Int32" />
+    <Property Name="fk_buildingID" Type="Int32" />
+    <NavigationProperty Name="Building" Relationship="Self.FK_Citizen_Citizen" FromRole="Citizen" ToRole="Building" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="BenutzerID" />
+    </Key>
+    <Property Name="BenutzerID" Type="Int32" Nullable="false" />
+    <Property Name="Benutzername" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Passwort" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Building_Building">
+    <End Role="Building" Type="Self.Building" Multiplicity="1" />
+    <End Role="Building1" Type="Self.Building" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Building">
+        <PropertyRef Name="BuildingID" />
+      </Principal>
+      <Dependent Role="Building1">
+        <PropertyRef Name="BuildingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Citizen_Citizen">
+    <End Role="Building" Type="Self.Building" Multiplicity="0..1" />
+    <End Role="Citizen" Type="Self.Citizen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Building">
+        <PropertyRef Name="BuildingID" />
+      </Principal>
+      <Dependent Role="Citizen">
+        <PropertyRef Name="fk_buildingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="M120_ProjektEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Buildings" EntityType="Self.Building" />
+    <EntitySet Name="Citizens" EntityType="Self.Citizen" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Building_Building" Association="Self.FK_Building_Building">
+      <End Role="Building" EntitySet="Buildings" />
+      <End Role="Building1" EntitySet="Buildings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Citizen_Citizen" Association="Self.FK_Citizen_Citizen">
+      <End Role="Building" EntitySet="Buildings" />
+      <End Role="Citizen" EntitySet="Citizens" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
