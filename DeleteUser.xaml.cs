@@ -20,6 +20,9 @@ namespace Projekt_120
 
         public void DeleteCitizen(bool confirm)
         {
+            Name.Text = "";
+            FirstName.Text = "";
+
             try
             { 
             Int32 id = Convert.ToInt32(CitizenID.Text);
@@ -35,6 +38,7 @@ namespace Projekt_120
                 if (DeleteUser.Read_CitizenID(id) == null)
                 {
                     Console.WriteLine("Löschen erfolgreich");
+                    number.Opacity = 0;
                 }
                 else
                 {
@@ -69,9 +73,19 @@ namespace Projekt_120
         {
             DeleteCitizen(false);
 
-            Warning.Opacity = 100;
-            Warning1.Opacity = 100;
-            Warning2.Opacity = 100;
+            if (CitizenID.Text != "" && Name.Text != "")
+            {
+                number.Opacity = 0;
+                Warning.Opacity = 1;
+                Warning1.Opacity = 1;
+                Warning2.Opacity = 1;
+            }
+            else
+            {
+                Warning.Opacity = 0;
+                Warning1.Opacity = 0;
+                Warning2.Opacity = 0;
+            }
         }
 
         private void Warning1_Click(object sender, RoutedEventArgs e)

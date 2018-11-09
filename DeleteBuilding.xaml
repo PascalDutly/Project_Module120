@@ -34,6 +34,8 @@
             <Button x:Name="button" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Canvas.Left="161" Canvas.Top="288" Click="Button_Click">
                 <Image Source="C:\Users\vmadmin\Documents\Visual Studio 2017\Projects\Projekt_120\Projekt_120\Icons\Delete.png" Cursor="Hand"/>
             </Button>
+            <Label Name="buildingError" Content="In diesem Gebäude wohnt noch jemand" Canvas.Left="286" Canvas.Top="67" Opacity="0" Foreground="#FFE61A1A"/>
+            <Label Name="deleteBuildingSuccessful" Content="Gebäude gelöscht" Canvas.Left="216" Canvas.Top="288" Opacity="0" Foreground="#FF43BB67"/>
         </Canvas>
     </Grid>
 </UserControl>

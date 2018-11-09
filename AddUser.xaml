@@ -25,6 +25,7 @@
             <Label Content="Einkommen/Monat" Canvas.Left="44" Canvas.Top="191" FontSize="12"/>
             <Label Content="Geburtsdatum" Canvas.Left="71" Canvas.Top="224" FontSize="12"/>
             <Label Content="GebäudeID" Canvas.Left="86" Canvas.Top="255" FontSize="12"/>
+            
             <TextBox Name="CitizenID" Height="23" Canvas.Left="162" TextWrapping="Wrap" Canvas.Top="71" Width="129"/>
             <TextBox Name="Name" Height="23" Canvas.Left="161" TextWrapping="Wrap" Canvas.Top="101" Width="129"/>
             <TextBox Name="FirstName" Height="23" Canvas.Left="161" TextWrapping="Wrap" Canvas.Top="132" Width="129"/>

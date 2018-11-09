@@ -33,7 +33,7 @@ namespace Projekt_120
             newCitizen.birthday = birthday;
             newCitizen.incomePerMonth = income;
             newCitizen.fk_buildingID = building;
-
+            
             try
             {
                 Console.WriteLine("Der neue Bewohner:" + AddUser.Create(newCitizen));
@@ -44,17 +44,20 @@ namespace Projekt_120
                 Warning warning = new Warning();
                 warning.Show();
             }
+            
+            
         }
 
 
         public static Int64 Create(Citizen citizen)
-            {
+        {
                 if (citizen.name == null) citizen.name = "";
                 if (citizen.firstName == null) citizen.firstName = "";
                 if (citizen.gender == null) citizen.gender = "";
                 if (citizen.birthday == null) citizen.birthday = DateTime.Today;
                 if (citizen.incomePerMonth == null) citizen.incomePerMonth = 0;
                 if (citizen.fk_buildingID == null) citizen.fk_buildingID = 1;
+
             using (var db = new M120_ProjektEntities())
             {
                 db.Citizens.Add(citizen);
@@ -62,6 +65,7 @@ namespace Projekt_120
                 db.Entry(citizen).Reload();
                 return citizen.citizenID;
             }
+            
         }
         
 
@@ -79,13 +83,10 @@ namespace Projekt_120
 
             string gender;
             if (Male.IsChecked == true)
-            {
                 gender = "Herr";
-            }
             else
-            {
                 gender = "Frau";
-            }
+            
 
             try //Absturz bei falschem Datenformat wird verhindert
             {
@@ -94,8 +95,9 @@ namespace Projekt_120
             }
             catch
             {
-                format.Opacity = 100;
+                format.Opacity = 1;
             }
+            addSuccessful();
         }
 
         public static List<Citizen> ReadAll()
@@ -128,10 +130,23 @@ namespace Projekt_120
             listAllCitizens.ItemsSource = citizenList;
         }
 
+        private void addSuccessful()
+        {
+            CitizenID.Text = "";
+            Name.Text = "";
+            FirstName.Text = "";
+            Income.Text = "";
+            Birthday.Text = "";
+            Building.Text = "";
+        }
+
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+
+
 
         private void updateStatistic()
         {
@@ -171,7 +186,6 @@ namespace Projekt_120
 
         private void timer()
         {
-            
                 DispatcherTimer dispatcherTimer = new DispatcherTimer();
                 dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
                 dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 10);
@@ -183,8 +197,6 @@ namespace Projekt_120
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            // Updating the Label which displays the current second
-            //lblSeconds.Content = DateTime.Now.Second;
             genderStatistic.Opacity += 0.01;
             
         }

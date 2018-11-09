@@ -8,12 +8,13 @@
              d:DesignHeight="768" d:DesignWidth="1024">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>  
             <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
         <Canvas Background="LightGray" Name="Main">
 
             <TabControl Background="DarkGray" Canvas.Left="538" Canvas.Top="218" SelectedIndex="0" Cursor="Hand">
+                <TabItem Visibility="Collapsed"></TabItem>
                 <TabItem Header="Bewohner hinzufügen" MouseDown="TabItem_MouseDown" MouseUp="TabItem_MouseUp"></TabItem>
                 <TabItem Header="Bewohner löschen" KeyDown="TabItem_KeyDown" MouseUp="TabItem_MouseUp_1"></TabItem>
                 <TabItem Header="Gebäude hinzufügen" KeyDown="TabItem_KeyDown" MouseUp="TabItem_MouseUp_2" ></TabItem>
