@@ -81,7 +81,7 @@ namespace Projekt_120
         {
             using (var db = new M120_ProjektEntities())
             {
-                return (from rec in db.Users select rec).ToList();
+               return (from rec in db.Users select rec).ToList();
             }
         }
 

@@ -20,6 +20,8 @@ namespace Projekt_120
         public AddUser()
         {
             InitializeComponent();
+
+            updateDataGrid();
         }
         
 
@@ -44,10 +46,7 @@ namespace Projekt_120
                 Warning warning = new Warning();
                 warning.Show();
             }
-            
-            
         }
-
 
         public static Int64 Create(Citizen citizen)
         {
@@ -76,6 +75,7 @@ namespace Projekt_120
 
         private void button_Click_1(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine(Birthday.DisplayDate);
             using (var context = new M120_ProjektEntities())
             {
                 context.Citizens.ToList();
@@ -91,7 +91,8 @@ namespace Projekt_120
             try //Absturz bei falschem Datenformat wird verhindert
             {
                 format.Opacity = 0;
-                CreateCitizen(Convert.ToInt32(CitizenID.Text), Name.Text, FirstName.Text, gender, Birthday.DisplayDate, Convert.ToInt32(Income.Text), Convert.ToInt32(Building.Text));
+                Console.WriteLine(Birthday.DisplayDate);
+                CreateCitizen(Convert.ToInt32(CitizenID.Text), Name.Text, FirstName.Text, gender, Convert.ToDateTime(Birthday.Text), Convert.ToInt32(Income.Text), Convert.ToInt32(Building.Text));
             }
             catch
             {
@@ -110,14 +111,17 @@ namespace Projekt_120
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            
+            updateDataGrid();
+        }
+
+        private void updateDataGrid()
+        {
             try
             {
                 citizenList = new List<Citizen>();
 
                 foreach (Citizen citizen in AddUser.ReadAll())
                 {
-                    //Console.WriteLine("CitizenID:" + citizen.citizenID + " / Name:" + citizen.name + " / Vorname:" + citizen.firstName + citizen.gender);
                     citizenList.Add(citizen);
                 }
             }
@@ -126,7 +130,7 @@ namespace Projekt_120
                 Console.WriteLine("Fehler beim Auslesen:" + ex.Message);
             }
             ReadAll();
-            
+
             listAllCitizens.ItemsSource = citizenList;
         }
 
@@ -136,7 +140,6 @@ namespace Projekt_120
             Name.Text = "";
             FirstName.Text = "";
             Income.Text = "";
-            Birthday.Text = "";
             Building.Text = "";
         }
 
@@ -199,6 +202,11 @@ namespace Projekt_120
         {
             genderStatistic.Opacity += 0.01;
             
+        }
+
+        private void Birthday_CalendarClosed(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(Birthday.Text);
         }
     }
 }

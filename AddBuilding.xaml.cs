@@ -24,6 +24,8 @@ namespace Projekt_120
         public AddBuilding()
         {
             InitializeComponent();
+
+            updateDataGrid();
         }
 
         static void CreateBuilding(int buildingID, string name, string street, string streetNr, short postcode, string place, string purpose)
@@ -97,6 +99,11 @@ namespace Projekt_120
         }
         
         private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            updateDataGrid();
+        }
+
+        private void updateDataGrid()
         {
             try
             {

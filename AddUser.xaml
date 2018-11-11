@@ -32,7 +32,7 @@
             <RadioButton Name="Male" Content="Mann" Canvas.Left="162" Canvas.Top="165" IsChecked="True"/>
             <RadioButton Name="Female" Content="Frau" Canvas.Left="216" Canvas.Top="165"/>
             <TextBox Name="Income" Height="23" Canvas.Left="161" TextWrapping="Wrap" Canvas.Top="193" Width="129"/>
-            <DatePicker Name="Birthday" Canvas.Left="161" Canvas.Top="226" DisplayDate="2001-11-20" Width="129"/>
+            <DatePicker Name="Birthday" Canvas.Left="161" Canvas.Top="226" Width="129" CalendarClosed="Birthday_CalendarClosed"/>
             <TextBox Name="Building" Height="23" Canvas.Left="161" TextWrapping="Wrap" Canvas.Top="258" Width="129"/>
             <Button x:Name="button" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Canvas.Left="161" Canvas.Top="288" Click="button_Click_1">
                 <Image Source="C:\Users\vmadmin\Documents\Visual Studio 2017\Projects\Projekt_120\Projekt_120\Icons\saveicon.jpg" Cursor="Hand"/>
@@ -52,10 +52,10 @@
             </Grid>
             <Button Content="Statistik aktualisieren" Canvas.Left="590" Canvas.Top="292" Width="121" Click="Button_Click_3"/>
 
-            <DataGrid Name="listAllCitizens" Height="200" Canvas.Left="388" IsReadOnly="True"/>
-
-            <Label Name="format" Content="Achten Sie auf den Datentypen" Canvas.Left="226" Canvas.Top="286" Opacity="0" Foreground="#FFE61A1A"/>
+            <DataGrid Name="listAllCitizens" Height="200" Canvas.Left="388"/>
             <Button Content="Aktualisieren" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Canvas.Left="388" Canvas.Top="211" Click="Button_Click_2" Cursor="Hand"/>
+            
+            <Label Name="format" Content="Achten Sie auf den Datentypen" Canvas.Left="226" Canvas.Top="286" Opacity="0" Foreground="#FFE61A1A"/>
             
         </Canvas>
     </Grid>
