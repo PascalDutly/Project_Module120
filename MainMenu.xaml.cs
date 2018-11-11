@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Win32;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Projekt_120
 {
@@ -20,7 +10,7 @@ namespace Projekt_120
     /// </summary>
     public partial class MainMenu : UserControl
     {
-        public static string newAvatarPath;
+        string strName, imageName;
         public MainMenu()
         {
             InitializeComponent();
@@ -109,10 +99,7 @@ namespace Projekt_120
             SwitchContainer.Children.Add(AddTaskUserControl);
         }
 
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            newAvatarPath = Avatar.Text;
-            MainWindow.setAvatar();
-        }
+        
+
     }
 }
